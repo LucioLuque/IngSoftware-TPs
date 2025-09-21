@@ -1,22 +1,14 @@
 package org.udesa.tp1.model;
 
-public class GiftCard {
-    private int balance;
-    private String cardName;
+import java.util.List;
 
+public abstract class GiftCard {
+    protected int balance;
+    protected String ownerName;
 
-    public GiftCard(String name, int balance) {
-        this.balance = balance;
-        this.cardName = name;
-    }
+    public abstract GiftCard claim(  String userName );
+    public abstract GiftCard charge( String userName, int price, Clock clock);
 
-    public GiftCard(GiftCard giftCard) {
-        //hacer!
-        this.balance = giftCard.getBalance();
-        this.cardName = giftCard.getName();
-    }
-
-    public String getName( ) { return cardName; }
-    public int getBalance( ) { return balance;  }
-
+    public abstract List<Expense> getExpenses( String userName );
+    public abstract int           getBalance(  String userName );
 }
