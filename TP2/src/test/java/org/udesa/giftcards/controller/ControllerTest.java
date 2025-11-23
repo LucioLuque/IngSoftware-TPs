@@ -67,8 +67,7 @@ public class ControllerTest {
 
     @Test void test03RedeemCard( ) throws Exception {
         redeem( getToken( ) );
-//        assertEquals( aGiftCard.getOwner( ).getName( ) ==  );
-        // mismo nombre
+        assertEquals( aUser, giftCardService.findByCardId( aGiftCard.getCardId( ) ).getOwner( ) );
     }
 
     @Test void test04InvalidRedeemCard( ) throws Exception {
